@@ -4,10 +4,6 @@
  * @author AceMood
  */
 
-"use strict";
-
-if (!isSupportedHistory())
-  return;
 
 var defaultConfig = {
   delegationDom: document.body,
@@ -32,16 +28,7 @@ function Ajaxify (config) {
 
 extend(Ajaxify.prototype, {
   init: function () {
-    delegate(this.config);
-  },
-  trigger: function (eventName, var_args) {
-
-  },
-  on: function (eventName, handler, context) {
-
-  },
-  off: function (eventName, handler, context) {
-
+    LinkController.init(this.config);
   },
   enable: function () {
 
@@ -58,4 +45,32 @@ extend(Ajaxify.prototype, {
  */
 Ajaxify.create = function (config) {
   return new Ajaxify(config);
+};
+
+/**
+ *
+ * @param eventName
+ * @param handler
+ * @param context
+ */
+Ajaxify.on = function (eventName, handler, context) {
+
+};
+
+Ajaxify.trigger = function (eventName, var_args) {
+
+};
+
+Ajaxify.off = function (eventName, handler, context) {
+
+};
+
+//
+Ajaxify.enable = function (ajaxify) {
+  ajaxify.enable();
+};
+
+//
+Ajaxify.disable = function (ajaxify) {
+  ajaxify.disable();
 };

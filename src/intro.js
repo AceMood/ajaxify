@@ -7,3 +7,6 @@
 ~function () {
 
   'use strict';
+
+  if (!isSupportedHistory())
+    return;
