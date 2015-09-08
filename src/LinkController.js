@@ -41,7 +41,8 @@ LinkController.init = function (ajaxify) {
   }
 
   function callback (url) {
-    Ajaxify.trigger('pageUnload', url);
+    Ajaxify.trigger('pageContentLoaded', url);
+
   }
 
   config.delegationDom.addEventListener('click', handler, false);
