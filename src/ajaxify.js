@@ -1,12 +1,13 @@
 /**
- * @fileoverview
- * @email
- * @author
+ * @fileoverview Ajaxify库
+ * @email zmike86@gmail.com
+ * @author AceMood
  */
+
+"use strict";
 
 if (!isSupportedHistory())
   return;
-
 
 var defaultConfig = {
   delegationDom: document.body,
@@ -23,6 +24,7 @@ var defaultConfig = {
  * @constructor
  */
 function Ajaxify (config) {
+  this.id = generateId();
   this.config = extend({}, defaultConfig, config);
   this.init();
 }
@@ -53,6 +55,6 @@ extend(Ajaxify.prototype, {
  * @param {?Object} config
  * @returns {Ajaxify}
  */
-Ajaxify.init = function (config) {
+Ajaxify.create = function (config) {
   return new Ajaxify(config);
 };

@@ -6,6 +6,12 @@
 
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 var slice = Array.prototype.slice;
+/**
+ * UID计数, 简单的整形递增
+ * @type {number}
+ * @private
+ */
+var uidCounter = 0;
 
 /**
  * 对象混入
@@ -34,4 +40,12 @@ function extend (target, var_args) {
 function isSupportedHistory (opt_win) {
   var win = opt_win || window;
   return !!(win.history && win.history.pushState);
+}
+
+/**
+ * 生成ajaxify实例唯一id
+ * @returns {string}
+ */
+function generateId () {
+  return 'Ajaxify_' + uidCounter++;
 }
