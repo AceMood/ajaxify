@@ -16,7 +16,7 @@ var uidCounter = 0;
 /**
  * 对象混入
  * @param {!Object} target 目标对象
- * @param {*} var_args 列表对象集合
+ * @param {...*} var_args 列表对象集合
  */
 function extend (target, var_args) {
   var objs = slice.call(arguments, 1);
@@ -48,4 +48,20 @@ function isSupportedHistory (opt_win) {
  */
 function generateId () {
   return 'Ajaxify_' + uidCounter++;
+}
+
+/**
+ * 在数组中搜索符合条件的第一个项的索引
+ * @param {Array.<T>} arr 要遍历的对象
+ * @param {S} obj 要寻找的对象
+ * @return {number} 返回第一个匹配的元素的索引, 无通过者返回-1
+ * @template T,S
+ */
+function findIndex (arr, obj) {
+  var l = arr.length;
+  for (var i = 0; i < l; i++) {
+    if (arr[i] === obj)
+      return i;
+  }
+  return -1;
 }

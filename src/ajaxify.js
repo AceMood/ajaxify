@@ -14,13 +14,14 @@ var defaultConfig = {
   delegationSelector: 'a',
   paramName: 'ajaxify',
   paramValue: '1',
-  attribute: 'href'
+  attribute: 'href',
+  threshold: 20
 };
 
 
 /**
  * Ajaxify构造器
- * @param {?Object} config
+ * @param {Object=} config
  * @constructor
  */
 function Ajaxify (config) {
@@ -33,13 +34,13 @@ extend(Ajaxify.prototype, {
   init: function () {
     delegate(this.config);
   },
-  trigger: function () {
+  trigger: function (eventName, var_args) {
 
   },
   on: function (eventName, handler, context) {
 
   },
-  off: function () {
+  off: function (eventName, handler, context) {
 
   },
   enable: function () {
@@ -52,7 +53,7 @@ extend(Ajaxify.prototype, {
 
 /**
  * 静态生成实例
- * @param {?Object} config
+ * @param {Object=} config
  * @returns {Ajaxify}
  */
 Ajaxify.create = function (config) {

@@ -8,3 +8,6 @@ function HistoryManager () {
 
 }
 
+HistoryManager.push = function (url, title) {
+  window.history.pushState(null, title || document.title, url);
+};
