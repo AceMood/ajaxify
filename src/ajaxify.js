@@ -22,6 +22,7 @@ var defaultConfig = {
  */
 function Ajaxify (config) {
   this.id = generateId();
+  this.enabled = false;
   this.config = extend({}, defaultConfig, config);
   this.init();
 }
@@ -31,10 +32,10 @@ extend(Ajaxify.prototype, {
     LinkController.init(this.config);
   },
   enable: function () {
-
+    this.enabled = true;
   },
   disable: function () {
-
+    this.enabled = false;
   }
 });
 
@@ -65,12 +66,12 @@ Ajaxify.off = function (eventName, handler, context) {
 
 };
 
-//
+// 启用ajaxify
 Ajaxify.enable = function (ajaxify) {
   ajaxify.enable();
 };
 
-//
+// 禁用ajaxify
 Ajaxify.disable = function (ajaxify) {
   ajaxify.disable();
 };
