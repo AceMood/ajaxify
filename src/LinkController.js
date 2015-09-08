@@ -26,21 +26,23 @@ LinkController.init = function (ajaxify) {
     var nodes = config.delegationDom.querySelectorAll(config.delegationSelector);
     var index = findIndex(nodes, target);
     if (index !== -1) {
-      routeTime++;
+      // 要跳转的页面
       var url = target.getAttribute(config.attribute);
-      LinkController.route(url);
+      // 页面局刷的占位符元素id
+      var attrIds = target.getAttribute('pagelets');
+      var pagelets = JSON.parse(attrIds);
+
+      routeTime++;
+      Ajaxify.trigger('pageUnload', location.href);
+      HistoryManager.push(url);
+      XhrIo.get(url, callback);
     }
     return false;
   }
 
-  config.delegationDom.addEventListener('click', handler, false);
-};
+  function callback (url) {
+    Ajaxify.trigger('pageUnload', url);
+  }
 
-/**
- *
- * @param {!String} url
- */
-LinkController.route = function (url) {
-  HistoryManager.push(url);
-  // ajaxproxy.get(url);
+  config.delegationDom.addEventListener('click', handler, false);
 };

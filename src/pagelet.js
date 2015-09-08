@@ -9,6 +9,7 @@ function Pagelet (config) {
   this.id = config.id;
   this.jsResources = [];
   this.cssResource = [];
+  this.content = '';
 }
 
 

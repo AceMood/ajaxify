@@ -1,0 +1,6 @@
+
+var XhrIo = {
+  get: function () {
+
+  }
+};
